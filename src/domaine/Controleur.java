@@ -343,9 +343,7 @@ public class Controleur implements Observable {
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(fichier));
             Instrument _instrument = (Instrument) in.readObject();
-            instrument.setListeTouches(_instrument.getListeTouches());
-            instrument.setNomInstrument(_instrument.getNomInstrument());
-            instrument.setImageFond(_instrument.getImageFond());
+            instrument = new Instrument(_instrument.getListeTouches(),_instrument.getNomInstrument(), _instrument.getImageFond(), this);
             informerObservateurChangementJeu();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
