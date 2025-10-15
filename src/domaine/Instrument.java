@@ -33,11 +33,12 @@ import javax.sound.midi.Synthesizer;
 import javax.sound.midi.Track;
 import javax.sound.midi.Transmitter;
 import javax.swing.Timer;
+import java.io.Serializable;
 
 /**
  *
  */
-public class Instrument implements Receiver {
+public class Instrument implements Receiver, Serializable {
 
     private ArrayList<Touche> listeTouches = new ArrayList<Touche>();
     private String nomInstrument;
