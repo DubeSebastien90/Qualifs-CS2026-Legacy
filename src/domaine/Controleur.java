@@ -330,7 +330,18 @@ public class Controleur implements Observable {
     }
 
     public void sauvegarderInstrument(File fichier) {
-        // todo
+        try {
+            boolean fichierCree = fichier.createNewFile();
+
+            if (fichierCree) {
+                System.out.println("Fichier créé avec succès : " + fichier.getName());
+            } else {
+                System.out.println("Le fichier existe déjà.");
+            }
+        } catch (IOException e) {
+            System.err.println("Une erreur est survenue lors de la création du fichier.");
+            e.printStackTrace();
+        }
     }
 
     public void chargerInstrument(File fichier) {
